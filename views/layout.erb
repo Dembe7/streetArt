@@ -5,10 +5,41 @@
   <title>Hello World</title>
   <link rel='stylesheet' href='/stylesheets/main.css'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+
 </head>
+<h1 class = "bigtitle">Street Art</h1>
 <body>
+<nav class = "font">
+<ul>
+<a href="/">Home</a>
+
+
+  <div class = "loggedin">
+  <% if logged_in?() %>
+      Logged in as <%= current_user()['email'] %>
+     <form action="/session" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button>logout</button>
+    </form>
+    </div>
+    
+    <a href="/streetart/new">Post a pic</a>
+    <a href="/streetart/mypost">My Posts</a>
+    
+
+  <% else %>
+    <a href="/login">login</a>
+    <a href="/signup">signup</a>
+
+  <% end %>
+
 
   <%= yield %>
-
+  </ul>
+  </nav>
 </body>
 </html>
+
+

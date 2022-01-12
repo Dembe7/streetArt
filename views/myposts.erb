@@ -1,13 +1,4 @@
- <%# <header>
-  <h1>good<span>food</span>hunting</h1>
-  <%if logged_in? 
-  <a href="/streetart/new">share the art</a>
-  <%end
-</header> %>
-
-<section class="pics">
-
-  <% userpost.each do |post| %>
+<% userpost.each do |post| %>
 
     <article class="card">
       <h2>
@@ -21,12 +12,10 @@
       </h2>
       <img src="<%= post['image_url'] %>" alt="<%= post['name'] %>">
 
-    </article> 
-    <h2 class = "caption">
+    </article>
+    <h2>
     <%= post['caption'] %>
     </h2>
 
 
   <% end %>
-
-</section>

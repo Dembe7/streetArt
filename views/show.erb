@@ -1,0 +1,13 @@
+<h1> <%= userpost['title'] %></h1>
+<h2> <%= userpost['caption'] %></h2>
+
+
+<img src="<%= userpost['image_url'] %>" alt="">
+
+
+<form action="/streetart/<%= userpost['id'] %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button>delete</button>
+</form>
+
+<a href="/streetart/<%= userpost['id'] %>/edit">edit</a>

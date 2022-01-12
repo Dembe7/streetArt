@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+@import url('http://fonts.googleapis.com/css?family=Droid+Sans');
+
+body {
+
+    background: linear-gradient(110deg, #c96c36 60%, #000000 60%);
+    /* background-image: linear-gradient(45deg, rgb(135, 161, 177) 25%, rgb(207, 136, 78) 25%); */
+
+    /* background:rgb(247, 4, 4);
+    width: 100vw;
+    height: 100vh; */
+    
+}
+
+.bigtitle {
+    text-align: center;
+
+}
+
+h1 {
+    font-family: 'Droid Sans', arial, serif; 
+    font-size: 40pt;
+    /* text-align: center; */
+}
+
+h2 {
+    font-family: 'Droid Sans', arial, serif; 
+    font-size: 24pt;
+}
+
+
+
+.pics {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    /* border: solid black; */
+
+}
+
+.title {
+    text-align: left;
+    color: rgb(216, 216, 216);
+    font-family: 'Droid Sans', arial, serif; 
+    font-size:24pt;
+    text-decoration: none;
+
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.loggedin {
+    text-align: right;
+    color: white;
+}
+
+.caption {
+    text-align: right;
+    color: rgb(255, 255, 255);
+}
+
