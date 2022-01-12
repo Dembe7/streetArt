@@ -33,8 +33,7 @@ end
 
 get '/' do
 
-  conn = PG.connect(dbname: 'streetart')
-  sql = 'select * from userpost order by title;'
+  conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'streetart'})  sql = 'select * from userpost order by title;'
   result = conn.exec(sql) # array of hashes of dishes [{}, {}]
   conn.close
   erb :index, locals: {userpost: result}
@@ -49,7 +48,7 @@ end
 get '/streetart/:id'  do
   title = params['id']
 
-  conn = PG.connect(dbname: 'streetart')
+  conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'streetart'})
 
   sql = "select * from userpost where id = #{title};"
 
@@ -73,7 +72,7 @@ post '/streetart/new' do
 
   
   
-  conn = PG.connect(dbname: 'streetart')
+  conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'streetart'})
   conn.exec(sql)
   conn.close
 
@@ -83,7 +82,7 @@ end
 
 delete '/streetart/:id' do
   sql = "delete from userpost where id = #{ params['id'] };"
-  conn = PG.connect(dbname: 'streetart')
+  conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'streetart'})
   conn.exec(sql)
   conn.close
   redirect '/'
@@ -96,7 +95,7 @@ get '/streetart/:id/edit' do
 
   sql = "select * from userpost where id = #{params['id']};"
 
-  conn = PG.connect(dbname: 'streetart')
+  conn = conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'streetart'})
   result = conn.exec(sql) # [{ 'name' => 'cake', 'image_url' => 'cake.jpg'}]
 
   result = conn.exec(sql)[0] 
@@ -116,7 +115,7 @@ post '/streetart/:id' do
   caption = '#{params['caption']}', 
   title = '#{params['title']}';"
 
-  conn = PG.connect(dbname: 'streetart')
+ conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'streetart'})
   conn.exec(sql)
   conn.close
   # redirect "/streetart/#{params['id']}"
@@ -138,7 +137,7 @@ post '/session' do
   password = params["password"]
   # email
   # loook up the email in the database
-  conn = PG.connect(dbname: 'streetart')
+  conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'streetart'})
   sql = "select * from users where email = '#{email}';"
   result =  conn.exec(sql) #
   conn.close
@@ -176,7 +175,7 @@ post '/session' do
 
     # email
     # loook up the email in the database
-    conn = PG.connect(dbname: 'streetart')
+    conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'streetart'})
     sql = "INSERT INTO users (name, email, password_digest) values('#{params['name']}','#{params['email']}', '#{password_digest}');"
     result =  conn.exec(sql) #
     conn.close
@@ -219,7 +218,7 @@ end
 
 post 'mypost' do
 
-  conn = PG.connect(dbname: 'streetart')
+  conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'streetart'})
   sql = "select * from userposts where user_art  = #{current_user.id};"
   result = conn.exec(sql) # array of hashes of dishes [{}, {}]
   return sql
