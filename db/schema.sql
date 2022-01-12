@@ -3,7 +3,7 @@ CREATE TABLE userpost (
     image_url TEXT, 
     location TEXT,
     caption TEXT,
-    user_art TEXT
+    user_art INTEGER,
     title TEXT
 );
 
