@@ -2,7 +2,6 @@ require 'sinatra' # web framework / crud apps
 require 'sinatra/reloader'
 require 'pg' # need functions to talk to the db
 require 'bcrypt'
-require 'pry'
 
 # require_relative 'public/main.css'
 
