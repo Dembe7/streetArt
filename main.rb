@@ -1,5 +1,4 @@
 require 'sinatra' # web framework / crud apps
-require 'sinatra/reloader'
 require 'pg' # need functions to talk to the db
 require 'bcrypt'
 
@@ -32,7 +31,8 @@ end
 
 get '/' do
 
-  conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'streetart'})  sql = 'select * from userpost order by title;'
+  conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'streetart'})  
+  sql = "select * from userpost order by title;"
   result = conn.exec(sql) # array of hashes of dishes [{}, {}]
   conn.close
   erb :index, locals: {userpost: result}
