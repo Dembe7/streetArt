@@ -7,7 +7,7 @@ require 'bcrypt'
 enable :sessions
 
 def db_query(sql, params = [])
-  conn = PG.connect(dbname: 'streetart')
+  conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'streetart'})
   result = conn.exec_params(sql, params) #always returns array
   conn.close
 

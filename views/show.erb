@@ -4,10 +4,17 @@
 
 <img src="<%= userpost['image_url'] %>" alt="">
 
-
+<% if logged_in?() %>
+      Logged in as <%= current_user()['email'] %>
 <form action="/streetart/<%= userpost['id'] %>" method="post">
   <input type="hidden" name="_method" value="delete">
   <button>delete</button>
 </form>
 
+  <% else %>
+    <h2>login to make changes</h2>
+
+  <% end %>
+
 <a href="/streetart/<%= userpost['id'] %>/edit">edit</a>
+
