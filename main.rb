@@ -38,6 +38,7 @@ get '/' do
   erb :index, locals: {userpost: result}
 end
 
+
 get '/streetart/new' do
   erb(:new)
 
