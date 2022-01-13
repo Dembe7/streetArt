@@ -4,6 +4,7 @@ GEM
     bcrypt (3.1.16)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
+    pg (1.2.3)
     rack (2.2.3)
     rack-protection (2.1.0)
       rack
@@ -20,6 +21,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt
+  pg
   sinatra
 
 BUNDLED WITH
