@@ -197,6 +197,7 @@ post '/session' do
     # else 
     #   erb :login
     # end
+    redirect '/login'
   end
 
     delete '/session' do 
