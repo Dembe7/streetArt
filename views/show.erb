@@ -9,12 +9,13 @@
 <form action="/streetart/<%= userpost['id'] %>" method="post">
   <input type="hidden" name="_method" value="delete">
   <button>delete</button>
+  <a href="/streetart/<%= userpost['id'] %>/edit">edit</a>
+
 </form>
 
   <% else %>
-    <h2>login to make changes</h2>
+    <h5>login to make changes</h5>
 
   <% end %>
 
-<a href="/streetart/<%= userpost['id'] %>/edit">edit</a>
 
